@@ -2,98 +2,108 @@ package CoreJava;
 import java.util.*;
 public class ArtisticPattern {
     public static void main(String[] args) {
-        //Scanner sc=new Scanner(System.in);
-        //System.out.println("Enter Size of Diamond ");
-        //int size=sc.nextInt();
-        int size=7;
-        int r=2*size+1;
-        int c=2*size+2;
-        for(int i=0; i<r; i++) {
-            for (int j = 0; j < c; j++) {
-                if (i == 0) {
-                    if(j==0 || j==c-1)
-                    {
-                        System.out.print("+");
-                    }
-                    else
-                        System.out.print("-");
 
-                }
-               else if(i==r-1)
-                {
-                    if(j==0 || j==c-1)
-                    {
-                        System.out.print("+");
-                    }
-                    else
-                        System.out.print("-");
-                }
-                else if(j==0 || j==c-1)
-                {
-                    System.out.print("|");
-                }
-               else if((r-1)/2==i)
-                {
-                    if(j==1)
-                        System.out.print("<");
-                    else if(j==c-2)
-                        System.out.print(">");
-                    else
-                    {
-                        if(i%2==0)
-                            System.out.print("-");
-                        else
-                            System.out.print("=");
-                    }
-                }
-               /* else if(i%2==0)
-                {
-                    System.out.print("-");
-                }
-                else if(i!=0 && i!=r-1)
-                {
-                    if(i%2==1)
-                        System.out.print("=");
-                }*/
-               else if((i+j)%(size+1)==0)
-                {
-                    if(i<r/2 && j<c/2)
-                    System.out.print("/");
-                    else
-                        System.out.print(" ");
-                }
-               else if((i+j)%size*3==0)
-                {
-                    if(i>r/2 && j>=c/2)
-                        System.out.print("/");
-                    else
-                        System.out.print(" ");
-                }
-               else if((i-j)%(size-1)==0 )
-                {
-                    if(i>r/2 && j<=c/2)
-                      System.out.print("\\");
-                    else
-                        System.out.print(" ");
-                }
-               else if((j-i)%size==0)
-                {
-                        if(i<r/2 && j>=c/2 )
-                        System.out.print("\\");
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter Size of Diamond");
+        int n=sc.nextInt();
 
-                        else
-                            System.out.print(" ");
-
-                }
-
-
-                else
-                    System.out.print(" ");
+        for(int i=1;i<=2*n+2;i++){
+            if(i==1 || i==2*n+2){
+                System.out.print("+");
+            }else{
+                System.out.print("-");
             }
-            System.out.println();
+        }
+        System.out.println();
+
+
+        //uper part
+        if(n>1){
+            //for pattern
+            for(int i=1;i<=n-1;i++){
+                System.out.print("|");
+                for(int s=n-2;s>=i;s--){
+                    System.out.print(" ");
+                }
+                System.out.print(" ");
+                if(i%2==0){
+                    System.out.print("/");
+                    for(int j=1;j<=2*i-2;j++){
+                        System.out.print("-");
+                    }
+                    System.out.print("\\");
+                }else{
+                    System.out.print("/");
+                    for(int j=1;j<=2*i-2;j++){
+                        System.out.print("=");
+                    }
+                    System.out.print("\\");
+                }
+                for(int s=n-1;s>=i;s--){
+                    System.out.print(" ");
+                }
+                System.out.print("|");
+                System.out.println();
+            }
         }
 
 
+        //center part
+        System.out.print("|");
+        System.out.print("<");
+        if(n%2==0){
+            for(int i=1;i<=2*n-2;i++){
+                System.out.print("-");
+            }
+        }else{
+            for(int i=1;i<=2*n-2;i++){
+                System.out.print("=");
+            }
+        }
+        System.out.print(">");
+        System.out.print("|");
+
+        System.out.println();
+
+        //down part
+        if(n>1){
+            for(int i=n-1;i>=1;i--){
+                System.out.print("|");
+                for(int s=n;s>=i+2;s--){
+                    System.out.print(" ");
+                }
+
+
+                System.out.print(" ");
+                if(i%2==0){
+                    System.out.print("\\");
+                    for(int j=1;j<=2*i-2;j++){
+                        System.out.print("-");
+                    }
+                    System.out.print("/");
+                }else{
+                    System.out.print("\\");
+                    for(int j=1;j<=2*i-2;j++){
+                        System.out.print("=");
+                    }
+                    System.out.print("/");
+                }
+                for(int s=n;s>=i+2;s--){
+                    System.out.print(" ");
+                }
+                System.out.print(" |");
+
+                System.out.println();
+            }
+        }
+
+        for(int i=1;i<=2*n+2;i++){
+            if(i==1 || i==2*n+2){
+                System.out.print("+");
+            }else{
+                System.out.print("-");
+            }
+        }
 
     }
 }
