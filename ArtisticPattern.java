@@ -72,14 +72,14 @@ public class ArtisticPattern {
                else if((i-j)%(size-1)==0 )
                 {
                     if(i>r/2 && j<=c/2)
-                      System.out.print("*");
+                      System.out.print("\\");
                     else
                         System.out.print(" ");
                 }
                else if((j-i)%size==0)
                 {
                         if(i<r/2 && j>=c/2 )
-                        System.out.print("*");
+                        System.out.print("\\");
 
                         else
                             System.out.print(" ");
