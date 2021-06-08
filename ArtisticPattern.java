@@ -6,7 +6,7 @@ public class ArtisticPattern {
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter Size of Diamond");
         int n=sc.nextInt();
-
+	//First Line
         for(int i=1;i<=2*n+2;i++){
             if(i==1 || i==2*n+2){
                 System.out.print("+");
@@ -17,9 +17,8 @@ public class ArtisticPattern {
         System.out.println();
 
 
-        //uper part
+        //Upper part
         if(n>1){
-            //for pattern
             for(int i=1;i<=n-1;i++){
                 System.out.print("|");
                 for(int s=n-2;s>=i;s--){
@@ -48,7 +47,7 @@ public class ArtisticPattern {
         }
 
 
-        //center part
+        //Center part
         System.out.print("|");
         System.out.print("<");
         if(n%2==0){
@@ -65,7 +64,7 @@ public class ArtisticPattern {
 
         System.out.println();
 
-        //down part
+        //Down part
         if(n>1){
             for(int i=n-1;i>=1;i--){
                 System.out.print("|");
@@ -96,7 +95,7 @@ public class ArtisticPattern {
                 System.out.println();
             }
         }
-
+	//Last Line
         for(int i=1;i<=2*n+2;i++){
             if(i==1 || i==2*n+2){
                 System.out.print("+");
