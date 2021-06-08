@@ -1,0 +1,35 @@
+for the first time
+git config--user.name "username of github"
+git config --use.email "email of github"
+
+git init
+git add .
+git commit -m"message"
+
+git status
+git log
+
+//for starting connectionn between github and gitbash
+//once you start a new repository all the comands will be shown there
+git remote add origin <paste the link of the repository>
+
+//to push the file:
+git push origin master
+
+//how to check branch whether in main or master
+git branch
+
+//to move from main to master or master to main so that u can download files from the selected branch
+git checkout master/main
+
+
+//to download files regularly once the connection between branch is done
+git pull
+
+//for going back to previous versions
+git log
+//copy the version that you want and
+git checkout <version id>
+
+//to get to master branch
+git checkout master
