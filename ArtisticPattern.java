@@ -1,108 +1,99 @@
 package CoreJava;
 import java.util.*;
 public class ArtisticPattern {
-    public static void main(String[] args) {
-
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Enter Size of Diamond");
-        int n=sc.nextInt();
-	//First Line
-        for(int i=1;i<=2*n+2;i++){
-            if(i==1 || i==2*n+2){
-                System.out.print("+");
-            }else{
-                System.out.print("-");
-            }
+   static void printTopOrBottom(int size)
+    {
+        System.out.print("+");
+        for(int i=0; i<2*size; i++)
+        {
+            System.out.print("-");
         }
-        System.out.println();
+        System.out.println("+");
 
-
-        //Upper part
-        if(n>1){
-            for(int i=1;i<=n-1;i++){
-                System.out.print("|");
-                for(int s=n-2;s>=i;s--){
-                    System.out.print(" ");
-                }
+    }
+    static void printUpperPart(int size)
+    {
+        for(int row=0; row<size-1; row++)
+        {
+            System.out.print("|");//1
+            for(int i=0; i<size-row-1; i++)//2
+            {
                 System.out.print(" ");
-                if(i%2==0){
-                    System.out.print("/");
-                    for(int j=1;j<=2*i-2;j++){
-                        System.out.print("-");
-                    }
-                    System.out.print("\\");
-                }else{
-                    System.out.print("/");
-                    for(int j=1;j<=2*i-2;j++){
-                        System.out.print("=");
-                    }
-                    System.out.print("\\");
-                }
-                for(int s=n-1;s>=i;s--){
-                    System.out.print(" ");
-                }
-                System.out.print("|");
-                System.out.println();
             }
+            System.out.print("/");//3
+            for(int i=0; i<2*row; i++)//4
+            {
+                if(row%2==0)
+                    System.out.print("=");
+                else
+                    System.out.print("-");
+            }
+            System.out.print("\\");//5
+            for(int i=0; i<size-row-1; i++)//6
+            {
+                System.out.print(" ");
+            }
+            System.out.println("|");//6
+
         }
-
-
-        //Center part
+    }
+    static void printMiddleLine(int size)
+    {
         System.out.print("|");
         System.out.print("<");
-        if(n%2==0){
-            for(int i=1;i<=2*n-2;i++){
+
+        for(int i=0; i<2*size-2; i++)
+        {
+            if(size%2==0)
                 System.out.print("-");
-            }
-        }else{
-            for(int i=1;i<=2*n-2;i++){
+            else
                 System.out.print("=");
-            }
         }
+
         System.out.print(">");
-        System.out.print("|");
-
-        System.out.println();
-
-        //Down part
-        if(n>1){
-            for(int i=n-1;i>=1;i--){
-                System.out.print("|");
-                for(int s=n;s>=i+2;s--){
-                    System.out.print(" ");
-                }
-
-
+        System.out.println("|");
+    }
+    static void printLowerPart(int size)
+    {
+        for(int row=size-1; row>0; row--)
+        {
+            System.out.print("|");//1
+            for (int i=size-row; i>0; i--)//2
+            {
                 System.out.print(" ");
-                if(i%2==0){
-                    System.out.print("\\");
-                    for(int j=1;j<=2*i-2;j++){
-                        System.out.print("-");
-                    }
-                    System.out.print("/");
-                }else{
-                    System.out.print("\\");
-                    for(int j=1;j<=2*i-2;j++){
-                        System.out.print("=");
-                    }
-                    System.out.print("/");
-                }
-                for(int s=n;s>=i+2;s--){
-                    System.out.print(" ");
-                }
-                System.out.print(" |");
-
-                System.out.println();
             }
-        }
-	//Last Line
-        for(int i=1;i<=2*n+2;i++){
-            if(i==1 || i==2*n+2){
-                System.out.print("+");
-            }else{
-                System.out.print("-");
+            System.out.print("\\");//3
+            for(int i=0; i<2*(row-1); i++)//4
+            {
+                if(row%2==0)
+                    System.out.print("-");
+                else
+                    System.out.print("=");
             }
+            System.out.print("/");//5
+            for(int i=size-row; i>0; i--)//6
+            {
+                System.out.print(" ");
+            }
+            System.out.println("|");//7
         }
 
     }
+   static void printpattern(int size)
+    {
+        printTopOrBottom(size);//printing firstLine
+        printUpperPart(size);
+        printMiddleLine(size);
+        printLowerPart(size);
+        printTopOrBottom(size);//printing firstLine
+
+    }
+    public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+        System.out.println("Enter Size of Diamond");
+        int size=sc.nextInt();
+        printpattern(size);
+
+    }
 }
+
